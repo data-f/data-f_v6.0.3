@@ -1,0 +1,118 @@
+$shade : 15%; // ...... 0 → 50%
+$opacity : .97; // .... 0 → 1
+$depth : 100vh; // .... 0 → ∞
+$tide : 40px; // ...... 0 → ∞
+$scale : scale(.85); // 0 → 1
+$duration : 3s; // .... 0s → ∞
+$size : 380px;
+
+$red : #ff3b30;
+$orange : #ff9500;
+$yellow : #ffcc00;
+$green : #4cd964;
+$cyan : #34aadc;
+$blue : #007aff;
+$black : #333;
+$white : #fff;
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $white;
+	overflow-y: hidden;
+	height: 100vh;
+	user-select: none;
+}
+
+.scene {
+	transform: translateY(-5vh) rotateX(45deg) rotate(45deg);
+	transform-style: preserve-3d;
+	transition: transform $duration/2;
+
+	html:hover & {
+		transform: translateY(0) rotateX(0) rotate(0);
+	}
+}
+
+.grid {
+	display: block;
+	width: $size;
+	height: $size;
+}
+
+.grid-item {
+	animation: float $duration ease-in-out infinite;
+	transform-style: preserve-3d;
+	opacity: $opacity;
+
+	&.w1 { width: $size*.2; }
+	&.w2 { width: $size*.4; }
+	&.w3 { width: $size*.6; }
+	&.h1 { height: $size*.2; }
+	&.h2 { height: $size*.4; }
+	&.h3 { height: $size*.6; }
+
+	&:before, &:after {
+		display: block;
+		position: absolute;
+		content: '';
+		transition: opacity $duration/2;
+
+		html:hover & { opacity: 0; }
+	}
+
+	&:before {
+		top: 100%;
+		left: 0;
+		right: 0;
+		height: $depth;
+		transform: rotateX(-90deg);
+		transform-origin: center top;
+	}
+	&:after {
+		left: 100%;
+		top: 0;
+		bottom: 0;
+		width: $depth;
+		transform: rotateY(90deg);
+		transform-origin: center left;
+	}
+}
+
+@mixin color($color) {
+	background: $color;
+
+	&:before { background: shade($color, $shade*2); }
+	&:after { background: shade($color, $shade); }
+}
+
+.r { @include color($red); }
+.o { @include color($orange); }
+.y { @include color($yellow); }
+.g { @include color($green); }
+.c { @include color($cyan); }
+.b { @include color($blue); }
+.bl { @include color($black); }
+
+@for $i from 1 through 15 {
+	.z#{$i} {
+		z-index: $i;
+		animation-delay: $i/15 * -$duration;
+	}
+}
+
+@keyframes float {
+	from, to { transform: translateZ(-$tide/2) $scale; }
+	50% { transform: translateZ($tide/2) $scale; }
+}
+
+@import 'https://fonts.googleapis.com/css?family=Lato:900';
+
+.grid-item.link {
+	display: block;
+	text-align: center;
+	font: 35px/76px Lato, sans-serif;
+	text-decoration: none;
+	color: white;
+}

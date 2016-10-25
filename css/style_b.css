@@ -1,0 +1,69 @@
+/**,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+}*/
+
+.brick {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px 0;
+  position: relative;
+}
+
+.brick-front {
+  display: inline-block;
+  padding: 20px;
+  border: 4px solid #000;
+  background-color: #f1f1f1;
+  position: relative;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-shadow: 0 0 0 0 black;
+}
+.brick-front:hover {
+  -webkit-transform: translate3d(10px, -10px, 0);
+          transform: translate3d(10px, -10px, 0);
+  box-shadow: 0px 0px 0 #000, -1px 1px 0 #000, -2px 2px 0 #000, -3px 3px 0 #000, -4px 4px 0 #000, -5px 5px 0 #000, -6px 6px 0 #000, -7px 7px 0 #000, -8px 8px 0 #000, -9px 9px 0 #000, -10px 10px 0 #000;
+}
+
+.brick-set {
+  margin: 40px 0;
+  padding: 0;
+}
+.brick-set li {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+  width: 50%;
+}
+.brick-set li:nth-child(even) .brick {
+  text-align: left;
+}
+.brick-set li:nth-child(odd) {
+  z-index: 1;
+}
+.brick-set li:nth-child(odd) .brick {
+  text-align: right;
+}
+.brick-set .brick {
+  margin: 0;
+}
+.brick-set .brick .brick-front {
+  -webkit-transform: translate3d(10px, -10px, 0);
+          transform: translate3d(10px, -10px, 0);
+  box-shadow: 0px 0px 0 #000, -1px 1px 0 #000, -2px 2px 0 #000, -3px 3px 0 #000, -4px 4px 0 #000, -5px 5px 0 #000, -6px 6px 0 #000, -7px 7px 0 #000, -8px 8px 0 #000, -9px 9px 0 #000, -10px 10px 0 #000;
+}
+.brick-set .brick .brick-front:hover {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-shadow: 0px 0px 0 #000;
+}

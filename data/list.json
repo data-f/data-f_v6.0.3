@@ -1,0 +1,25 @@
+[
+  {
+    "category" : "physics", "category_kr" : "물리학", "category_code" : "P",
+    "description" : "6명의 위대한 여성 과학자들",
+    "people" : [
+      {"id":0, "name":"에밀리 뒤 샤틀레"},
+      {"id":1, "name":"로라 마리아 바시"},
+      {"id":2, "name":"마리 퀴리"},
+      {"id":3, "name":"마리아 괴퍼트-마이어"},
+      {"id":4, "name":"우젠슝"},
+      {"id":5, "name":"조셀린 벨 버넬"}
+    ]
+  },
+  {
+    "category" : "chemistry", "category_kr" : "화학", "category_code" : "C",
+    "description" : "5명의 위대한 여성 과학자들",
+    "people" : [
+      {"id":0, "name":"마리 안느 폴즈"},
+      {"id":1, "name":"마리 퀴리"},
+      {"id":2, "name":"이렌 퀴리"},
+      {"id":3, "name":"리제 마이트너"},
+      {"id":4, "name":"도로시 호지킨-크로폿"}
+    ]
+  }
+]
